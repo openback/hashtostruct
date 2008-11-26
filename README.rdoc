@@ -1,0 +1,59 @@
+= hashtostruct
+
+http://github.com/openback/hashtostruct
+
+== DESCRIPTION:
+
+Takes a Hash and converts it into a Struct with each key as a property and
+each value converted into a native object if possible.
+
+== SYNOPSIS:
+
+obj = {
+  "string" => "text nonsense",
+  "int" => "45", 
+  "exp"   => "123.45e1", 
+  "date"  => "2008-10-26 12:49:45",
+  "array"  => [ "item_1", "45.2", "123e1" ],
+  "nested" => {
+    "int"    => "32", 
+    "string" => "textie"
+  }
+}.to_struct
+
+obj.int === 45
+obj.date.year === 2008
+obj.array[2] === 1230.0
+
+
+== INSTALL:
+
+sudo gem install hashtostruct
+
+or from GitHub:
+sudo gem install openback-hashtostruct
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 FIXME full name
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
