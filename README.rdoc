@@ -9,35 +9,29 @@ each value converted into a native object if possible.
 
 == SYNOPSIS:
 
-{
-obj = {
-  "string" => "text nonsense",
-  "int" => "45", 
-  "exp"   => "123.45e1", 
-  "date"  => "2008-10-26 12:49:45",
-  "array"  => [ "item_1", "45.2", "123e1" ],
-  "nested" => {
-    "int"    => "32", 
-    "string" => "textie"
-  }
-}.to_struct
+  obj = {
+    "string" => "text nonsense",
+    "int" => "45", 
+    "exp"   => "123.45e1", 
+    "date"  => "2008-10-26 12:49:45",
+    "array"  => [ "item_1", "45.2", "123e1" ],
+    "nested" => {
+      "int"    => "32", 
+      "string" => "textie"
+    }
+  }.to_struct
 
-obj.int === 45
-obj.date.year === 2008
-obj.array[2] === 1230.0
-}
+  obj.int === 45
+  obj.date.year === 2008
+  obj.array[2] === 1230.0
 
 == INSTALL:
 
-{
-sudo gem install hashtostruct
-}
+  sudo gem install hashtostruct
 
 or from GitHub:
 
-{
-sudo gem install openback-hashtostruct
-}
+  sudo gem install openback-hashtostruct
 
 == LICENSE:
 
