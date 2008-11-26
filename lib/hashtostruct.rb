@@ -5,6 +5,23 @@ module Hashtostruct
 
   module StringToObject
     # Attempt to parse the string into a native Ruby object using standard formats
+    #
+    # It currently looks for and converts:
+    # * integers
+    # * floats
+    # * exponents into floats
+    # * booleans
+    # * DateTimes in the formats:
+    #   * yyyy-mm
+    #   * yyyy-mm-dd
+    #   * yyyy-mm-dd hh:mm:ss
+    #   * hh:mm
+    #   * hh:mm:ss
+    #   * hh:mm:ssZ
+    #   * hh:mm:ss.ss
+    #   * hh:mm:ss(+-)hh:mm
+    #   * hh:mm:ss(+-)hhmm
+    #   * hh:mm:ss(+-)hh
     def to_obj
       case self
       when /^(tru|fals)e$/
@@ -52,23 +69,6 @@ module Hashtostruct
 
     # Takes a Hash and converts it into a Struct with each key as a property 
     # each value converted into a native object if possible.
-    #
-    # It currently looks for and converts:
-    # * integers
-    # * floats
-    # * exponents into floats
-    # * booleans
-    # * DateTimes in the formats:
-    #   * yyyy-mm
-    #   * yyyy-mm-dd
-    #   * yyyy-mm-dd hh:mm:ss
-    #   * hh:mm
-    #   * hh:mm:ss
-    #   * hh:mm:ssZ
-    #   * hh:mm:ss.ss
-    #   * hh:mm:ss(+-)hh:mm
-    #   * hh:mm:ss(+-)hhmm
-    #   * hh:mm:ss(+-)hh
     def to_struct
       hash = self
       Struct.new(*(hash.inject([]) { |res,val| res << val[0].to_sym })).new(*(
