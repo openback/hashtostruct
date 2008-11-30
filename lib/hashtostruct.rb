@@ -12,7 +12,6 @@ module Hashtostruct
     # * exponents into floats
     # * booleans
     # * DateTimes in the formats:
-    #   * yyyy-mm
     #   * yyyy-mm-dd
     #   * yyyy-mm-dd hh:mm:ss
     #   * hh:mm
@@ -38,7 +37,7 @@ module Hashtostruct
         DateTime.parse(self)
       when /^\d{2}:\d{2}:\d{2}[+-]\d{2}(:?\d{2})?$/
         DateTime.parse(self)
-      when /^\d{4}-\d{2}(-\d{2})?$/
+      when /^\d{4}-\d{2}-\d{2}$/
         DateTime.parse(self)
       when /^\d{4}-\d{2}-\d{2}[+-]\d{2}(:?\d{2})?$/
         DateTime.parse(self)
@@ -65,8 +64,6 @@ module Hashtostruct
   end
 
   module HashToStruct
-    VERSION = '1.0.0'
-
     # Takes a Hash and converts it into a Struct with each key as a property 
     # each value converted into a native object if possible.
     def to_struct

@@ -76,9 +76,11 @@ describe Hashtostruct do
   end
   
   it "should parse 'yyyy-mm' as Date" do
-    @obj.date3.should be_an_instance_of(DateTime)
-    @obj.date3.year.should  eql(2008)
-    @obj.date3.month.should eql(10)
+    pending("should it default to the 1st of the month?") do
+      @obj.date3.should be_an_instance_of(DateTime)
+      @obj.date3.year.should  eql(2008)
+      @obj.date3.month.should eql(10)
+    end
   end
 
   it "should parse 'hh:mm:ss' as Time" do
