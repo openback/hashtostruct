@@ -32,7 +32,8 @@ describe Hashtostruct do
       "nested" => {
         "int"    => "32", 
         "string" => "textie"
-      }
+      },
+      "already_int" => 89
     }.to_struct
   end
   
@@ -193,5 +194,9 @@ describe Hashtostruct do
   it "should properly parse arrays" do
     @obj.array.should be_an_instance_of(Array)
     @obj.array.should eql(["item_1", 45.2, 1230.0])
+  end
+
+  it "should properly parse non-strings" do
+    @obj.already_int.should eql(89)
   end
 end

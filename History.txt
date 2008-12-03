@@ -1,4 +1,9 @@
-== 0.0.1 2008-11-25
+== 0.9.1 2008-12-03
+
+* 1 major enhancement:
+  * Added to_obj to Object to allow for arbitrary objects as initial Hash values
+
+== 0.9.0 2008-11-25
 
 * 1 major enhancement:
   * Initial release

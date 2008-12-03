@@ -1,7 +1,13 @@
 require 'date'
 
 module Hashtostruct
-  VERSION = '0.9.0'
+  VERSION = '0.9.1'
+
+  module ToObject
+    def to_obj
+      self
+    end
+  end
 
   module StringToObject
     # Attempt to parse the string into a native Ruby object using standard formats
@@ -78,6 +84,7 @@ module Hashtostruct
     end
   end
     
+  Object.send  :include, ToObject
   Array.send  :include, ArrayToObject
   String.send :include, StringToObject
   Hash.send   :include, HashToStruct
